@@ -25,7 +25,7 @@
 
                             <td>@autor.autor</td>
                             <td>
-                                <a href="@Url.Action("Libros", "Autores", new { id = autor.id })" class="btn btn-success">Seleccionar</a>
+                                <a href="@Url.Action("VerLibros", "Libros", new { idAutor = autor.id })" class="btn btn-success">Seleccionar</a>
                             </td>
                         </tr>
                     }
