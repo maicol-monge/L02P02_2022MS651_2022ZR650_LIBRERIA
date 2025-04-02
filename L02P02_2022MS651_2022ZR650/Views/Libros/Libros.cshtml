@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Libros";
+    Layout = "~/Views/Shared/_Layout_Personalizada.cshtml";
+    @model List<L02P02_2022MS651_2022ZR650.Models.Libros>
+}
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
+<div class="container">
+    <ul class="progressbar">
+        <li>Autores</li>
+        <li>Libros</li>
+        <li class="active">Comentarios Existentes</li>
+        <li>Nuevo Comentario</li>
+    </ul>
+
+    <br />
+
+
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <strong>Autor:</strong>
+                    <span class="text-primary">@ViewBag.NombreAutor</span>
+                </h5>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <h6 class="text-primary">Seleccione el Libro del autor</h6>
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    @foreach (var libro in Model)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>@libro.nombre</strong>
+                                <p class="mb-0 text-muted">@libro.descripcion</p>
+                            </div>
+                            <button class="btn btn-success">Seleccionar</button>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<br />
+
