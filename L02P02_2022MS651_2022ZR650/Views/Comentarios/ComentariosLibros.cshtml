@@ -1,0 +1,58 @@
+﻿@model IEnumerable<L02P02_2022MS651_2022ZR650.Models.Comentarios_libros>
+
+@{
+    ViewData["Title"] = "Comentarios del Libro";
+    Layout = "~/Views/Shared/_Layout_Personalizada.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
+<div class="container">
+    <ul class="progressbar">
+        <li>Autores</li>
+        <li>Libros</li>
+        <li class="active">Comentarios Existentes</li>
+        <li>Nuevo Comentario</li>
+    </ul>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Comentarios Existentes</h2>
+            <div class="card">
+                <div class="card-body">
+                    @if (Model != null && Model.Any())
+                    {
+                        @foreach (var comentario in Model)
+                        {
+                            <div class="mb-3">
+                                <strong>@comentario.usuario</strong> - @comentario.created_at.ToString("dd/MM/yyyy HH:mm")
+                                <p>@comentario.comentarios</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No hay comentarios para este libro.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Agregar un Comentario</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="AgregarComentario" asp-route-idLibro="@ViewBag.IdLibro" method="post">
+                        <div class="form-group">
+                            <label for="comentario">Comentario:</label>
+                            <textarea class="form-control" id="comentario" name="comentario" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Guardar Comentario</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
