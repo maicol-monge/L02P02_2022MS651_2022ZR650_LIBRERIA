@@ -1,8 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_Personalizada.cshtml";
 }
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div class="container">
+    <ul class="progressbar">
+        <li>Autores</li>
+        <li>Libros</li>
+        <li class="active">Comentarios Existentes</li>
+        <li>Nuevo Comentario</li>
+    </ul>
+</div>
+<br />
