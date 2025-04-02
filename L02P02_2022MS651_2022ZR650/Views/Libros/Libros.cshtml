@@ -15,18 +15,13 @@
 
     <br /><br />
 
-@*     <div class="container mt-5 py-3 border">
-        <strong>Autor:</strong>
-        <span class="text-primary">@ViewBag.NombreAutor</span>
-    </div> *@
-
-        <div class="container py-3 border">
-
+    <div class="contenedor mt-5">
+        <div class="border contenedor">
             <strong>Autor:</strong>
             <span class="text-primary">@ViewBag.NombreAutor</span>
+        </div>
 
-        <br /><br />
-            
+        <div class="contenedor mt-3 border">
             <h6 class="text-primary">Seleccione el Libro del autor</h6>
             <div class="card">
                 <ul class="list-group list-group-flush">
@@ -37,12 +32,13 @@
                                 <strong>@libro.nombre</strong>
                                 <p class="mb-0 text-muted">@libro.descripcion</p>
                             </div>
-                        <a href="@Url.Action("ComentariosLibros", "Comentarios", new { idLibro = libro.id, nombreLibro = libro.nombre, nombreAutor = ViewBag.NombreAutor })" class="btn btn-success">Seleccionar</a>
+                            <a href="@Url.Action("ComentariosLibros", "Comentarios", new { idLibro = libro.id, nombreLibro = libro.nombre, nombreAutor = ViewBag.NombreAutor })" class="btn btn-success">Seleccionar</a>
                         </li>
                     }
                 </ul>
             </div>
         </div>
+    </div>
     
 
 
