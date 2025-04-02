@@ -17,42 +17,61 @@
 
     <br />
 
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Comentarios Existentes</h2>
-            <div class="card">
-                <div class="card-body">
-                    @if (Model != null && Model.Any())
-                    {
-                        @foreach (var comentario in Model)
-                        {
-                            <div class="mb-3">
-                                <strong>@comentario.usuario</strong> - @comentario.created_at.ToString("dd/MM/yyyy HH:mm")
-                                <p>@comentario.comentarios</p>
-                            </div>
-                        }
-                    }
-                    else
-                    {
-                        <p>No hay comentarios para este libro.</p>
-                    }
+    <div class="container">
+        <div class="border-2">
+            <div class="p-2 d-flex justify-content-between">
+                <div class="d-flex">
+                    <h3 class="text-primary">Autor: <span class="text-dark">@ViewBag.nombreAutor</span> </h3>
+                    
                 </div>
+                <div class="d-flex">
+                    <h3 class="text-primary">Libro: <span class="text-dark">@ViewBag.nombreLibro</span></h3>
+                </div>
+
             </div>
         </div>
+        
 
-        <div class="col-md-6">
-            <h2>Agregar un Comentario</h2>
-            <div class="card">
-                <div class="card-body">
-                    <form asp-action="AgregarComentario" asp-route-idLibro="@ViewBag.IdLibro" method="post">
-                        <div class="form-group">
-                            <label for="comentario">Comentario:</label>
-                            <textarea class="form-control" id="comentario" name="comentario" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success">Guardar Comentario</button>
-                    </form>
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="text-primary">Comentarios Existentes</h2>
+                <div class="card border-1 p-2">
+                    <div class="card-body">
+                        @if (Model != null && Model.Any())
+                        {
+                            @foreach (var comentario in Model)
+                            {
+                                <div class="mb-3">
+                                    
+                                    <p>@comentario.comentarios</p>
+                                    <strong>@comentario.usuario</strong> <br /> @comentario.created_at.ToString("dd/MM/yyyy HH:mm")
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p>No hay comentarios para este libro.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h2 class="text-primary">Agregar un Comentario</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <form asp-action="AgregarComentario" asp-route-idLibro="@ViewBag.IdLibro" method="post">
+                            <div class="form-group">
+                                <label for="comentario">Comentario:</label>
+                                <textarea class="form-control" id="comentario" name="comentario" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">Guardar Comentario</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    
 </div>
