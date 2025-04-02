@@ -20,7 +20,7 @@ namespace L02P02_2022MS651_2022ZR650.Controllers
 
         public IActionResult Libros(int id)
         {
-            // Redirige a la vista de libros del autor seleccionado
+            
             return RedirectToAction("VerLibros", "Libros", new { autorId = id });
         }
     }

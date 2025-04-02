@@ -8,25 +8,12 @@
 <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 
 <div class="container">
-    @if (ViewBag.ComentarioAgregado != null && ViewBag.ComentarioAgregado == true)
-    {
-        <ul class="progressbar">
-            <li>Autores</li>
-            <li>Libros</li>
-            <li>Comentarios Existentes</li>
-            <li class="active">Nuevo Comentario</li>
-        </ul>
-    }
-    else
-	{
-		<ul class="progressbar">
-			<li>Autores</li>
-			<li>Libros</li>
-			<li class="active">Comentarios Existentes</li>
-			<li>Nuevo Comentario</li>
-		</ul>
-	}
-    
+    <ul class="progressbar">
+        <li>Autores</li>
+        <li>Libros</li>
+        <li>Comentarios Existentes</li>
+        <li class="active">Nuevo Comentario</li>
+    </ul>
 
     <br />
 
@@ -35,12 +22,15 @@
             <div class="p-2 d-flex justify-content-between">
                 <div class="d-flex">
                     <h3 class="text-primary">Autor: <span class="text-dark">@ViewBag.nombreAutor</span> </h3>
+
                 </div>
                 <div class="d-flex">
                     <h3 class="text-primary">Libro: <span class="text-dark">@ViewBag.nombreLibro</span></h3>
                 </div>
+
             </div>
         </div>
+
 
         <div class="row my-3">
             <div class="col-md-6">
@@ -51,7 +41,8 @@
                         {
                             @foreach (var comentario in Model)
                             {
-                                <div class="mb-2 p-2 border">
+                                <div class="mb-2 p-2  border">
+
                                     <p>@comentario.comentarios</p>
                                     <strong>@comentario.usuario</strong> <br /> @comentario.created_at.ToString("dd/MM/yyyy HH:mm")
                                 </div>
@@ -70,31 +61,19 @@
                 <div class="card">
                     <div class="card-body">
                         
-
-                        @if (ViewBag.ComentarioAgregado != null && ViewBag.ComentarioAgregado == true)
-                        {
                             <div class="form-group mb-3">
                                 <label for="comentario">Comentario:</label>
-                                <textarea class="form-control" id="comentario" name="comentario" rows="4" required>@ViewBag.Comentario</textarea>
+                                <textarea class="form-control" id="comentario" value="" name="comentario" rows="4" required ></textarea>
                             </div>
-
-                            <div class="p-3 text-primary-emphasis bg-info border border-primary-subtle rounded-3 text-center">
-                                Comentario Adicionado con éxito.
-                            </div>
-                        }
-                        else
-                        {
-                            <form asp-action="AgregarComentario" asp-route-idLibro="@ViewBag.idLibro" method="post">
-                                <div class="form-group mb-3">
-                                    <label for="comentario">Comentario:</label>
-                                    <textarea class="form-control" id="comentario" name="comentario" rows="4" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-success">Guardar Comentario</button>
-                            </form>
-                        }
+                       
+                        <div bg-primary-subtle p-5>
+                            <p>Comentario Adicionado con éxito.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 </div>

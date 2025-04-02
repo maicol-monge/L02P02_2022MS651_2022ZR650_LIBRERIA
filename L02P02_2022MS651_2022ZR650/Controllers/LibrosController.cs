@@ -35,7 +35,7 @@ namespace L02P02_2022MS651_2022ZR650.Controllers
             if (!libros.Any())
             {
                 TempData["Error"] = "No hay libros disponibles para este autor.";
-                return RedirectToAction("Index", "Libros"); // O redirigir a una página de libros vacíos
+                return RedirectToAction("Index", "Libros"); 
             }
 
             return View("Libros", libros);
