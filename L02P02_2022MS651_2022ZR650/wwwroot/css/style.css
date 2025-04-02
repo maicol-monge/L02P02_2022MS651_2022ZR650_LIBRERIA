@@ -2,7 +2,9 @@
     width: 100%;
     margin: 100px auto;
 }
-
+.contenedor{
+   padding: 15px;
+}
 .text-msg {
     margin: 20px 0;
     display: block;
