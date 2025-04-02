@@ -18,15 +18,14 @@
         </ul>
     }
     else
-	{
-		<ul class="progressbar">
-			<li>Autores</li>
-			<li>Libros</li>
-			<li class="active">Comentarios Existentes</li>
-			<li>Nuevo Comentario</li>
-		</ul>
-	}
-    
+    {
+        <ul class="progressbar">
+            <li>Autores</li>
+            <li>Libros</li>
+            <li class="active">Comentarios Existentes</li>
+            <li>Nuevo Comentario</li>
+        </ul>
+    }
 
     <br />
 
@@ -69,8 +68,6 @@
                 <h2 class="text-primary">Agregar un Comentario</h2>
                 <div class="card">
                     <div class="card-body">
-                        
-
                         @if (ViewBag.ComentarioAgregado != null && ViewBag.ComentarioAgregado == true)
                         {
                             <div class="form-group mb-3">
@@ -89,6 +86,10 @@
                                     <label for="comentario">Comentario:</label>
                                     <textarea class="form-control" id="comentario" name="comentario" rows="4" required></textarea>
                                 </div>
+
+                                <input type="hidden" name="nombreAutor" value="@ViewBag.nombreAutor" />
+                                <input type="hidden" name="nombreLibro" value="@ViewBag.nombreLibro" />
+
                                 <button type="submit" class="btn btn-success">Guardar Comentario</button>
                             </form>
                         }
