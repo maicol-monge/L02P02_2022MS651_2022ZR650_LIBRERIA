@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Autores";
+    Layout = "~/Views/Shared/_Layout_Personalizada.cshtml";
+}
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
+<div class="container">
+    <ul class="progressbar">
+        <li class="active">Autores</li>
+        <li>Libros</li>
+        <li>Comentarios Existentes</li>
+        <li>Nuevo Comentario</li>
+    </ul>
+</div>
+<br /><br />
+<div class="container mt-5 py-3 border">
+    <h3 class="text-primary">Autor</h3>
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <tbody>
+                    @foreach (var autor in Model)
+                    {
+                        <tr class="d-flex justify-content-between border-1">
+
+                            <td>@autor.autor</td>
+                            <td>
+                                <a href="@Url.Action("Libros", "Autores", new { id = autor.id })" class="btn btn-success">Seleccionar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

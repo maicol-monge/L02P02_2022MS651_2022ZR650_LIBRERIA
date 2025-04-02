@@ -15,7 +15,7 @@ namespace L02P02_2022MS651_2022ZR650.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("/Views/Autores/Autores.cshtml");
         }
 
         public IActionResult Privacy()
