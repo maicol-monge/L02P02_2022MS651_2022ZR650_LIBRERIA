@@ -6,6 +6,6 @@ namespace L02P02_2022MS651_2022ZR650.Models
     {
         [Key]
         public int id { get; set; }
-        public string nombreCategoria { get; set; }
+        public string categoria { get; set; }
     }
 }
